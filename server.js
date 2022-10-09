@@ -1,5 +1,6 @@
 //import dependencies
 const express = require('express');
+const path = require('path');
 const exphbs = require('express-handlebards');
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -9,7 +10,6 @@ const sequelize = require('./config/connection');
 const routes = require('./routes');
 
 //create connect helpers
-
 const hbs = exphbs.create({ helpers });
 
 //connection session
