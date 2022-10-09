@@ -21,7 +21,7 @@ Post.init(
             allowNull: false,
         },
         //reference to user/creator
-        user_id: {
+        userID: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

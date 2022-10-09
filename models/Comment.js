@@ -20,7 +20,7 @@ Comment.init(
             }
         },
         //user id of the commenter
-        user_id: {
+        userID: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -29,7 +29,7 @@ Comment.init(
             }
         },
         //comment on a blog
-        post_id: {
+        postID: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
