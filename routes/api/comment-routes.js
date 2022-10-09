@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) =>{
         });
         //serialization of comments
         const commentAll = commentData.map((comment) => comment.get({ plain: true }));
-        res.render('all', {commentAll, loggedIn: req.session.loggedIn });
+        res.render('all', { commentAll, loggedIn: req.session.loggedIn });
 
     }
     catch(err) {
@@ -19,3 +19,18 @@ router.get('/', withAuth, async (req, res) =>{
 });
 
 //post comment
+router.post('/', withAuth, async (req, res) => {
+    let newCommentData = {
+        ...req.body,
+        userID: req.session.userID 
+    }
+    try{
+        const newComment = await Comment.create(newCommentData);
+        res.json(newComment);
+    }
+    catch(err) {
+        res.status(500).json(err);
+    }
+})
+
+module.exports = router
