@@ -5,7 +5,8 @@ const withAuth = require('../../utils/auth')
 //create Post
 router.post('/', withAuth, async(req, res) => {
     let newPostData = {
-        ...req.body,
+        title: req.body.title,
+        bodyPost: req.body.bodyPost,
         userID: req.session.userID
     }
     try {
@@ -18,4 +19,6 @@ router.post('/', withAuth, async(req, res) => {
 })
 
 //update Post
-router.put('/:id')
+// router.put('/:id')
+
+module.exports = router

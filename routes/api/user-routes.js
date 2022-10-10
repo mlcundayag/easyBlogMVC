@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { restart } = require('nodemon');
 const { User } = require('../../models');
 
 //create user 
@@ -49,7 +48,7 @@ router.post('/login', async (req, res) => {
             req.session.loggedIn = true;
 
             res.json({ user, message: `Success! Welcome back ${user.username}` });
-        })
+        });
     }
     catch (err) {
         res.status(400).json({ message: `User not found!\nLogin with valid username or create account!` })

@@ -10,13 +10,13 @@ Post.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: false
+            autoIncrement: true
         },
         title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        body: {
+        bodyPost: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -33,7 +33,7 @@ Post.init(
     {
         sequelize,
         freezeTableName: true,
-        underscored: true,
+        underscored: false,
         modelName: 'post'
     }
 );
