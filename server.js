@@ -1,7 +1,7 @@
 //import dependencies
 const express = require('express');
 const path = require('path');
-// const exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -10,7 +10,7 @@ const sequelize = require('./config/connection');
 const routes = require('./routes');
 
 //create connect helpers
-// const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers });
 
 //connection session
 const sess = {
@@ -37,8 +37,8 @@ app.use(session(sess));
 app.use(routes);
 
 //set handlebars
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 //sequelize server
 sequelize.sync({ force: false }).then(() => {
