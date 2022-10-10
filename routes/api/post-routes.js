@@ -26,7 +26,7 @@ router.put('/:id', withAuth, async(req, res) => {
                 id: req.params.id,
             }
         });
-        if(updatePost > 0) {
+        if(updatePost) {
             res.json({ status: `Successfully updated post`})
             return;
         } else {
@@ -41,7 +41,20 @@ router.put('/:id', withAuth, async(req, res) => {
 
 //Delete Post
 router.delete('/:id', withAuth, async(req, res) => {
-    try {}
+    try {
+        const deletePost = await Post.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        if(deletePost) {
+            res.json({ status: `Successfuly deleted post`})
+            return;
+        } else {
+            res.status(404).json({ error: `Post not found`})
+            return;
+        }
+    }
     catch (err) {
         res.status(500).json(err);
     }
