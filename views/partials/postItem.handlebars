@@ -2,13 +2,13 @@
   <div class="card-header  flex-row justify-space-between">
     <h2>
       <a href="/post/{{id}}">
-        <div class="col-8">{{title}}</div>
+        <div class="col-8">{{postTitle}}</div>
       </a>
     </h2>
-    <div class="col-3">posted by {{user.username}} on {{format_date createdAt}} at {{format_time createdAt}}
+    <div class="col-3">posted by {{user.username}} on {{format_date createdAt}}
     </div>
   </div>  
   <p class="card-body">
-   {{bodyPost}}
+   {{postContent}}
   </p>
 </div>
