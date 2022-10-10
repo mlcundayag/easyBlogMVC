@@ -11,7 +11,6 @@ router.get('/', withAuth, async (req, res) =>{
         //serialization of comments
         const commentAll = commentData.map((comment) => comment.get({ plain: true }));
         res.render('all', { commentAll, loggedIn: req.session.loggedIn });
-        
     }
     catch(err) {
         res.status(500).json(err);

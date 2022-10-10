@@ -19,6 +19,32 @@ router.post('/', withAuth, async(req, res) => {
 })
 
 //update Post
-// router.put('/:id')
+router.put('/:id', withAuth, async(req, res) => {
+    try {
+        const updatePost = await Post.update(req.body, {
+            where: {
+                id: req.params.id,
+            }
+        });
+        if(updatePost > 0) {
+            res.json({ status: `Successfully updated post`})
+            return;
+        } else {
+            res.status(404).json({ error: `Post not found`})
+            return;
+        }
+    }
+    catch (err) {
+        res.status(500).json (err);
+    }
+})
+
+//Delete Post
+router.delete('/:id', withAuth, async(req, res) => {
+    try {}
+    catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router
