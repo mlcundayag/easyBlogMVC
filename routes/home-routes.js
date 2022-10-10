@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth')
 
 //get all Post and render in on homepage
 router.get('/', async(req, res) =>{
@@ -18,34 +19,16 @@ router.get('/', async(req, res) =>{
 });
 
 //click a post and shows comments
-router.get('/post/:id', async(req, res) => {
+router.get('/post/:id', withAuth, async(req, res) => {
     try {
         const postData = await Post.findOne({
             where: {
                 id: req.params.id,
             }, 
-            attributes: [
-                'id',
-                'title',
-                'bodyPost'
-            ],
             include: [
-            {
+            User, {
                 model: Comment,
-                attributes: [
-                    'id',
-                    'bodyComment',
-                    'postID',
-                    'userID',
-                ],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                },
-            },
-            {
-                model: User,
-                attributes: ['username']
+                include: [User],
             }
         ],
         });
