@@ -5,10 +5,10 @@
   </div>
 </div>
 <br>
-{{#if allPost.length}}
+{{#if posts.length}}
 <div class="card flex-column">
   {{#each posts as |post|}}
-  {{> edit-Item post}}
+  {{> editItem post}}
   {{/each}}
 </div>
 {{/if}}
