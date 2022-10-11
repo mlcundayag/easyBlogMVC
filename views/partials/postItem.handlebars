@@ -1,11 +1,11 @@
-<div class="card">
-  <div class="card-header  flex-row justify-space-between">
-    <h2>
+<div class="card custom-card-style">
+  <div class="card-header d-flex justify-content-between post-homepage">
+    <h2 class="post-title">
       <a href="/post/{{id}}">
-        <div class="col-8">{{postTitle}}</div>
+        <div>{{postTitle}}</div>
       </a>
     </h2>
-    <div class="col-3">posted by {{user.username}} on {{format_date createdAt}} at {{format_time createdAt}}
+    <div class="fs-6">posted by <span class="fw-bold">{{user.username}}</span> on {{format_date createdAt}} at {{format_time createdAt}}
     </div>
   </div>  
   <p class="card-body">
