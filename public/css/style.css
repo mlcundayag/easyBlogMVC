@@ -14,7 +14,7 @@ body {
     font-family: var(--theme-font);
 }
 
-.navbar a, .post-title a{
+.navbar a, .post-title a, .post-dashboard a{
     text-decoration: none;
     color: var(--primary-color)
 }
@@ -23,10 +23,52 @@ body {
     color: var(--highlight-color)
 }
 
-.post-homepage {
+.post-dashboard a:hover {
+    color: var(--highlight-color);
+}
+
+.post-homepage, .card-header {
     background-color: var(--secondary-color)
 }
 
-.custom-card-style {
-    margin: 20px 0px
+.custom-card-style{
+    margin: 20px 0px;
+    border-bottom: 5px solid var(--secondary-color);
 }
+
+.card {
+    border: 2px;
+}
+
+.card-body{
+    color: var(--secondary-color)
+}
+
+.form-input {
+    width: 100%;
+    padding: 1%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+  }
+
+  .btn{
+    width: 100%;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+  }
+
+  .btn:hover, .footer a:hover {
+    background-color: var(--highlight-color);
+  }
+
+  .footer a {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+  }

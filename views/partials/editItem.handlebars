@@ -1,8 +1,8 @@
-<div class="card-body">
+<div class="card-body post-dashboard">
   <a href="dashboard/edit/{{id}}">
-    <div class="card-header flex-row justify-space-between">
+    <div class="card-header d-flex justify-content-between">
       <div class="col-8">Post Title: {{postTitle}}</div>
-      <div class="col-4">posted by {{user.username}} on {{format_date createdAt}} at {{format_time createdAt}}</div>
+      <div class="fs-6">posted by <span class="fw-bold">{{user.username}}</span> on {{format_date createdAt}} at {{format_time createdAt}}</div>
     </div>  
   </a>
 </div>
