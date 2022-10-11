@@ -3,6 +3,7 @@ const loginFormHandler = async function(event) {
 
   const usernameEl = document.querySelector('#username-input-login');
   const passwordEl = document.querySelector('#password-input-login');
+  const logoutEl = document.getElementById('logout-link')
 
   const response = await fetch('/api/user/login', {
     method: 'POST',
@@ -15,6 +16,7 @@ const loginFormHandler = async function(event) {
 
   if (response.ok) {
     document.location.replace('/dashboard');
+    logoutEl.classList.remove("hide");
   } else {
     alert('Failed to login');
   }
