@@ -22,7 +22,9 @@
       {{#unless loggedIn}}
       <li class="li-inline nav-item mx-2"><a href="/login">Login</a></li>
       {{/unless}}
-      <li class="li-inline nav-item mx-2 hide"><a href="#" id="logout-link">Logout</a></li>
+      {{#if loggedIn}}
+      <li class="li-inline nav-item mx-2"><a href="#" id="logout-link">Logout</a></li>
+      {{/if}}
     </ul>
   </nav>
 
